@@ -16,6 +16,7 @@ interface CardOption<V extends string> {
   label: string;
   description?: string;
   icon?: string;
+  image?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -62,7 +63,12 @@ function OptionCard<V extends string>({
             : 'border-warm-gray/20 bg-white shadow-sm hover:shadow-md hover:border-sage/30'
         }`}
     >
-      {option.icon && <span className="text-xl shrink-0">{option.icon}</span>}
+      {option.image && (
+        <div className="w-14 h-14 shrink-0 rounded-lg overflow-hidden border border-warm-gray/20 shadow-sm bg-warm-white">
+          <img src={option.image} alt={option.label} className="w-full h-full object-cover" />
+        </div>
+      )}
+      {!option.image && option.icon && <span className="text-xl shrink-0">{option.icon}</span>}
       <div className="flex-1 min-w-0">
         <span
           className={`block font-medium text-sm ${selected ? 'text-sage' : 'text-deep-slate'}`}
@@ -184,10 +190,10 @@ function CracksQuestion({
   onChange: (v: WizardAnswers['cracks']) => void;
 }) {
   const options: CardOption<WizardAnswers['cracks']>[] = [
-    { value: 'none', label: 'None observed', icon: '🟢', description: 'No visible cracks in the soil' },
-    { value: 'hairline', label: 'Hairline cracks', icon: '🟡', description: 'Very thin surface cracks' },
-    { value: 'moderate', label: 'Moderate cracks', icon: '🟠', description: 'Clearly visible, wider cracks' },
-    { value: 'severe', label: 'Severe cracks', icon: '🔴', description: 'Large, deep cracks in the ground' },
+    { value: 'none', label: 'None observed', image: '/images/soil_crack_none.png', description: 'No visible cracks in the soil' },
+    { value: 'hairline', label: 'Hairline cracks', image: '/images/soil_crack_hairline.png', description: 'Very thin surface cracks' },
+    { value: 'moderate', label: 'Moderate cracks', image: '/images/soil_crack_moderate.png', description: 'Clearly visible, wider cracks' },
+    { value: 'severe', label: 'Severe cracks', image: '/images/soil_crack_severe.png', description: 'Large, deep cracks in the ground' },
   ];
 
   return (
@@ -290,6 +296,40 @@ function DrainageQuestion({
   );
 }
 
+function MiniSlopeVisual({ degrees, selected }: { degrees: number; selected: boolean }) {
+  const rad = (degrees * Math.PI) / 180;
+  const length = 36;
+  const height = Math.sin(rad) * length;
+  const width = Math.cos(rad) * length;
+
+  const color = selected ? '#4a7c59' : '#a3b8a8';
+  const strokeColor = selected ? '#2c4a35' : '#738a7a';
+  const groundColor = selected ? '#4a7c59' : '#d2d1cf';
+
+  return (
+    <svg width="48" height="36" viewBox="0 0 48 36" className="mx-auto block mb-2 overflow-visible">
+      {/* ground line */}
+      <line x1="4" y1="32" x2="44" y2="32" stroke={groundColor} strokeWidth="2" strokeLinecap="round" />
+      {/* filled slope wedge */}
+      <polygon
+        points={`4,32 ${4 + width},32 ${4 + width},${32 - height}`}
+        fill={color}
+        stroke={color}
+        strokeLinejoin="round"
+        strokeWidth="1"
+      />
+      {/* slope line on top for crispness */}
+      <line 
+         x1="4" y1="32" 
+         x2={4 + width} y2={32 - height} 
+         stroke={strokeColor} 
+         strokeWidth="2" 
+         strokeLinecap="round" 
+      />
+    </svg>
+  );
+}
+
 // Q4 -- Slope
 function SlopeQuestion({
   value,
@@ -306,11 +346,11 @@ function SlopeQuestion({
       ? Math.round(Math.atan(terrainSlopePct / 100) * (180 / Math.PI))
       : null;
 
-  const options: { value: number; label: string; range: string; icon: string }[] = [
-    { value: 2, label: 'Flat', range: '< 5°', icon: '🏠' },
-    { value: 10, label: 'Gentle', range: '5 - 15°', icon: '⛰️' },
-    { value: 22, label: 'Moderate', range: '15 - 30°', icon: '🏔️' },
-    { value: 40, label: 'Steep', range: '> 30°', icon: '🧗' },
+  const options: { value: number; label: string; range: string; degrees: number }[] = [
+    { value: 2, label: 'Flat', range: '< 5°', degrees: 2 },
+    { value: 10, label: 'Gentle', range: '5 - 15°', degrees: 10 },
+    { value: 22, label: 'Moderate', range: '15 - 30°', degrees: 22 },
+    { value: 40, label: 'Steep', range: '> 30°', degrees: 40 },
   ];
 
   // Pre-select based on terrain data if user hasn't manually selected yet
@@ -340,14 +380,14 @@ function SlopeQuestion({
               key={opt.value}
               type="button"
               onClick={() => onChange(opt.value)}
-              className={`rounded-xl border p-4 text-center transition-all cursor-pointer
+              className={`rounded-xl border p-4 text-center transition-all cursor-pointer flex flex-col items-center justify-center
                 ${
                   isSelected
                     ? 'border-sage bg-sage/8 shadow-md ring-1 ring-sage/20'
                     : 'border-warm-gray/20 bg-white shadow-sm hover:shadow-md hover:border-sage/30'
                 }`}
             >
-              <span className="text-2xl block mb-1">{opt.icon}</span>
+              <MiniSlopeVisual degrees={opt.degrees} selected={isSelected} />
               <span
                 className={`block font-medium text-sm ${isSelected ? 'text-sage' : 'text-deep-slate'}`}
               >
@@ -592,7 +632,7 @@ export default function Questionnaire() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="flex-1 flex flex-col"
+              className="flex flex-col"
             >
               {/* Title */}
               <div className="text-center mb-6">
@@ -605,12 +645,12 @@ export default function Questionnaire() {
               </div>
 
               {/* Question content */}
-              <div className="flex-1">{renderQuestion()}</div>
+              <div>{renderQuestion()}</div>
             </motion.div>
           </AnimatePresence>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-warm-gray/10">
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-warm-gray/10">
             <button
               type="button"
               onClick={goBack}

@@ -1,12 +1,11 @@
 import { useCallback, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SearchBox } from '@mapbox/search-js-react';
 import {
-  MapPin,
   Mountain,
   Brain,
   Clock,
-  ChevronRight,
   Search,
   FileText,
   MessageSquare,
@@ -86,7 +85,7 @@ function TopoBackground() {
 export default function LandingPage() {
   const navigate = useNavigate();
   const { setLocation, setStep } = useAppStore();
-  const [searchValue, setSearchValue] = useState('');
+
   const [showOutsideArea, setShowOutsideArea] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const howItWorksRef = useRef<HTMLDivElement>(null);
@@ -130,27 +129,7 @@ export default function LandingPage() {
     [setLocation, setStep, navigate],
   );
 
-  const handleSearchSubmit = () => {
-    if (!searchValue.trim()) return;
-    // For the MVP, use the Mapbox geocoding API directly
-    const token = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
-    if (!token || token === 'YOUR_MAPBOX_TOKEN_HERE') {
-      // Fallback: use first demo address
-      handleDemoAddress(DEMO_ADDRESSES[0]);
-      return;
-    }
-    fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(searchValue)}.json?access_token=${token}&bbox=-82.85,35.40,-82.25,35.80&limit=1`,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.features?.length > 0) {
-          const [lng, lat] = data.features[0].center;
-          handleSearch(data.features[0].place_name, lng, lat);
-        }
-      })
-      .catch(console.error);
-  };
+
 
   return (
     <PageTransition className="relative min-h-screen overflow-hidden bg-gradient-to-br from-warm-white via-moss/10 to-deep-slate/20">
@@ -217,25 +196,31 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="relative backdrop-blur-xl bg-white/70 rounded-2xl shadow-xl border border-white/40 p-2">
-            <div className="flex items-center">
-              <MapPin className="w-5 h-5 text-sage ml-3 flex-shrink-0" />
-              <input
-                type="text"
-                placeholder="Enter your property address..."
-                className="flex-1 px-3 py-3.5 bg-transparent text-deep-slate placeholder:text-warm-gray/50 text-base outline-none"
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearchSubmit()}
-              />
-              <button
-                onClick={handleSearchSubmit}
-                className="bg-sage hover:bg-sage-light text-white px-5 py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-1.5 text-sm hover:shadow-lg active:scale-[0.98]"
-              >
-                Analyze
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+          <div className="relative backdrop-blur-xl bg-white/70 rounded-2xl shadow-xl border border-white/40 p-2 search-box-container">
+            <SearchBox
+              accessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN || 'YOUR_MAPBOX_TOKEN_HERE'}
+              options={{ bbox: [-82.85, 35.40, -82.25, 35.80], language: 'en' }}
+              onRetrieve={(res) => {
+                try {
+                  const feature = res.features[0];
+                  if (!feature) return;
+                  const coords = feature.geometry.coordinates;
+                  const address = feature.properties.full_address || feature.properties.name || feature.properties.place_formatted || 'Selected Address';
+                  handleSearch(address, coords[0], coords[1]);
+                } catch (e) {
+                  console.error(e);
+                }
+              }}
+              theme={{
+                variables: {
+                  fontFamily: 'inherit',
+                  borderRadius: '12px',
+                  boxShadow: 'none',
+                  colorText: '#1a2d3d',
+                  colorBackground: '#ffffff',
+                }
+              }}
+            />
           </div>
           {showOutsideArea && (
             <motion.p

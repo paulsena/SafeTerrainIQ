@@ -255,10 +255,34 @@ export default function RiskReport() {
           <LoadingSkeleton />
         ) : (
           <>
+            {/* Risk Badge */}
+            <div className="flex justify-center mb-12 mt-4">
+              <RiskBadge overall={riskResults.overall} averageScore={averageScore} />
+            </div>
+
+            {/* Category Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              {getCategoryDescriptions(riskResults.scores).map((cat, i) => (
+                <RiskCategoryCard
+                  key={cat.title}
+                  title={cat.title}
+                  score={cat.score}
+                  description={cat.description}
+                  icon={cat.icon}
+                  index={i}
+                />
+              ))}
+            </div>
+
+            {/* AI Summary */}
+            <div className="mb-12">
+              <AISummary summary={riskResults.aiSummary} delay={1.8} />
+            </div>
+
             {/* 3D Terrain Map — hero visual */}
             <motion.div
               id="report-map-3d"
-              className="mb-6"
+              className="mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -326,30 +350,6 @@ export default function RiskReport() {
                 />
               </Suspense>
             </motion.div>
-
-            {/* Risk Badge */}
-            <div className="flex justify-center mb-12">
-              <RiskBadge overall={riskResults.overall} averageScore={averageScore} />
-            </div>
-
-            {/* Category Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              {getCategoryDescriptions(riskResults.scores).map((cat, i) => (
-                <RiskCategoryCard
-                  key={cat.title}
-                  title={cat.title}
-                  score={cat.score}
-                  description={cat.description}
-                  icon={cat.icon}
-                  index={i}
-                />
-              ))}
-            </div>
-
-            {/* AI Summary */}
-            <div className="mb-8">
-              <AISummary summary={riskResults.aiSummary} delay={1.8} />
-            </div>
 
             {/* Next Steps CTA */}
             <motion.div
