@@ -1,7 +1,22 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MapPin, Mountain, Brain, Clock, ChevronRight } from 'lucide-react';
+import {
+  MapPin,
+  Mountain,
+  Brain,
+  Clock,
+  ChevronRight,
+  Search,
+  FileText,
+  MessageSquare,
+  Shield,
+  AlertTriangle,
+  Layers,
+  Droplets,
+  Menu,
+  X,
+} from 'lucide-react';
 import PageTransition from '../components/layout/PageTransition';
 import { useAppStore } from '../stores/appStore';
 import { isInsideBuncombe } from '../lib/geocoding';
@@ -73,6 +88,16 @@ export default function LandingPage() {
   const { setLocation, setStep } = useAppStore();
   const [searchValue, setSearchValue] = useState('');
   const [showOutsideArea, setShowOutsideArea] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const howItWorksRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const inspectorsRef = useRef<HTMLDivElement>(null);
+  const landslidesRef = useRef<HTMLDivElement>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
+    setMobileMenuOpen(false);
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleDemoAddress = useCallback(
     (demo: typeof DEMO_ADDRESSES[number]) => {
@@ -131,8 +156,38 @@ export default function LandingPage() {
     <PageTransition className="relative min-h-screen overflow-hidden bg-gradient-to-br from-warm-white via-moss/10 to-deep-slate/20">
       <TopoBackground />
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12">
+      {/* Navigation bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/60 border-b border-white/30">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-14">
+          <div className="flex items-center gap-2">
+            <Mountain className="w-5 h-5 text-sage" />
+            <span className="font-semibold text-deep-slate tracking-wide text-sm">SafeTerrainIQ</span>
+          </div>
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-6 text-sm text-warm-gray">
+            <button onClick={() => scrollTo(howItWorksRef)} className="hover:text-sage transition-colors">How It Works</button>
+            <button onClick={() => scrollTo(aboutRef)} className="hover:text-sage transition-colors">About</button>
+            <button onClick={() => scrollTo(inspectorsRef)} className="hover:text-sage transition-colors">For Inspectors</button>
+            <button onClick={() => scrollTo(landslidesRef)} className="hover:text-sage transition-colors">Landslides Info</button>
+          </div>
+          {/* Mobile hamburger */}
+          <button className="md:hidden text-warm-gray" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white/90 backdrop-blur-md border-t border-white/30 px-4 py-3 flex flex-col gap-3 text-sm text-warm-gray">
+            <button onClick={() => scrollTo(howItWorksRef)} className="text-left hover:text-sage transition-colors">How It Works</button>
+            <button onClick={() => scrollTo(aboutRef)} className="text-left hover:text-sage transition-colors">About</button>
+            <button onClick={() => scrollTo(inspectorsRef)} className="text-left hover:text-sage transition-colors">For Inspectors</button>
+            <button onClick={() => scrollTo(landslidesRef)} className="text-left hover:text-sage transition-colors">Landslides Info</button>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero section */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12 pt-20">
         {/* Logo / Brand */}
         <motion.div
           className="text-center mb-8"
@@ -241,6 +296,189 @@ export default function LandingPage() {
           Currently serving: Asheville & Western North Carolina
         </motion.p>
       </div>
+
+      {/* ── How It Works ── */}
+      <section ref={howItWorksRef} className="relative z-10 bg-white/60 backdrop-blur-sm py-20 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4">How It Works</h2>
+          <p className="text-warm-gray mb-14 max-w-2xl mx-auto">
+            Three simple steps to understand your property's terrain risk.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Search,
+                step: '1',
+                title: 'Enter Your Address',
+                desc: 'Type any address in our service area. We locate your parcel and pull high-resolution terrain data automatically.',
+              },
+              {
+                icon: Layers,
+                step: '2',
+                title: 'We Analyze the Terrain',
+                desc: 'Our models evaluate slope stability, debris flow potential, drainage patterns, and historical landslide proximity.',
+              },
+              {
+                icon: FileText,
+                step: '3',
+                title: 'Get Your Report',
+                desc: 'Receive a detailed risk assessment with 3D maps, risk scores, and actionable next steps — all in minutes.',
+              },
+            ].map(({ icon: Icon, step, title, desc }) => (
+              <div key={step} className="flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-2xl bg-sage/10 flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-sage" />
+                </div>
+                <div className="text-xs font-semibold text-sage/60 uppercase tracking-wider mb-1">Step {step}</div>
+                <h3 className="text-lg font-semibold text-deep-slate mb-2">{title}</h3>
+                <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── About ── */}
+      <section ref={aboutRef} className="relative z-10 py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center">About SafeTerrainIQ</h2>
+          <p className="text-warm-gray text-center mb-10 max-w-2xl mx-auto">
+            Built after Hurricane Helene devastated Western North Carolina, SafeTerrainIQ brings geotechnical-grade
+            terrain analysis to everyday homeowners — no engineering degree required.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                icon: Shield,
+                title: 'Trusted Data Sources',
+                desc: 'We combine USGS elevation models, NCGS geological surveys, FEMA flood data, and county soil maps for a comprehensive picture.',
+              },
+              {
+                icon: Brain,
+                title: 'Expert-Informed Models',
+                desc: 'Our risk algorithms are calibrated against real-world landslide inventories and reviewed by geotechnical professionals.',
+              },
+              {
+                icon: Mountain,
+                title: 'High-Resolution Terrain',
+                desc: 'We use LiDAR-derived digital elevation models at 1-meter resolution to capture slope, aspect, and curvature details.',
+              },
+              {
+                icon: MessageSquare,
+                title: 'Plain-Language Reports',
+                desc: 'No jargon. Reports explain what the risk factors mean for your property and what practical steps you can take.',
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex gap-4 p-5 rounded-xl bg-white/50 border border-white/40">
+                <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-5 h-5 text-sage" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-deep-slate mb-1">{title}</h3>
+                  <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── For Inspectors ── */}
+      <section ref={inspectorsRef} className="relative z-10 bg-deep-slate/[0.03] py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4">For Home Inspectors</h2>
+          <p className="text-warm-gray mb-10 max-w-2xl mx-auto">
+            Add geohazard intelligence to your inspection toolkit. Differentiate your services
+            and give clients the terrain context they need.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 text-left">
+            {[
+              {
+                title: 'Pre-Inspection Intel',
+                desc: 'Run a report before you arrive on-site to know which slopes, drainage paths, and risk zones to focus on.',
+              },
+              {
+                title: 'Client-Ready Reports',
+                desc: 'Include professional geohazard summaries in your inspection package — branded and ready to share.',
+              },
+              {
+                title: 'Liability Awareness',
+                desc: 'Document terrain conditions as part of your due diligence. Flag properties that may need a geotechnical referral.',
+              },
+            ].map(({ title, desc }) => (
+              <div key={title} className="p-5 rounded-xl bg-white/70 border border-white/40">
+                <h3 className="font-semibold text-deep-slate mb-2">{title}</h3>
+                <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-warm-gray/60">
+            Interested in inspector pricing?{' '}
+            <a href="mailto:info@safeterrainiq.com" className="text-sage hover:underline">Get in touch</a>
+          </p>
+        </div>
+      </section>
+
+      {/* ── Landslides Info ── */}
+      <section ref={landslidesRef} className="relative z-10 py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center">Understanding Landslide Risk</h2>
+          <p className="text-warm-gray text-center mb-12 max-w-2xl mx-auto">
+            Western North Carolina's steep terrain and heavy rainfall make it one of the highest
+            landslide-risk regions east of the Rockies. Here's what drives that risk.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                icon: AlertTriangle,
+                title: 'Slope Instability',
+                desc: 'Slopes over 25 degrees are significantly more prone to failure, especially when saturated. Many WNC properties sit on or near steep slopes that may not be obvious from the road.',
+              },
+              {
+                icon: Droplets,
+                title: 'Water & Saturation',
+                desc: 'Heavy rainfall saturates soil and increases pore water pressure — the primary trigger for most landslides in our region. Drainage patterns around your property matter.',
+              },
+              {
+                icon: Layers,
+                title: 'Soil & Geology',
+                desc: "WNC's weathered bedrock and residual soils can lose strength when wet. The interface between soil and rock is often where failures initiate.",
+              },
+              {
+                icon: Mountain,
+                title: 'Historical Patterns',
+                desc: 'Areas that have slid before are more likely to slide again. Our analysis overlays your property with known landslide inventories and historical event data.',
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex gap-4 p-5 rounded-xl bg-white/50 border border-white/40">
+                <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Icon className="w-5 h-5 text-sage" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-deep-slate mb-1">{title}</h3>
+                  <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="relative z-10 border-t border-white/30 bg-white/40 backdrop-blur-sm py-8 px-4">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-warm-gray/60">
+          <div className="flex items-center gap-2">
+            <Mountain className="w-4 h-4 text-sage/50" />
+            <span>SafeTerrainIQ &mdash; Asheville, NC</span>
+          </div>
+          <div className="flex gap-6">
+            <button onClick={() => scrollTo(howItWorksRef)} className="hover:text-sage transition-colors">How It Works</button>
+            <button onClick={() => scrollTo(aboutRef)} className="hover:text-sage transition-colors">About</button>
+            <button onClick={() => scrollTo(inspectorsRef)} className="hover:text-sage transition-colors">For Inspectors</button>
+            <button onClick={() => scrollTo(landslidesRef)} className="hover:text-sage transition-colors">Landslides Info</button>
+          </div>
+        </div>
+      </footer>
     </PageTransition>
   );
 }

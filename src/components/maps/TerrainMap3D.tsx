@@ -183,8 +183,12 @@ export default function TerrainMap3D({ lat, lng, landslides }: TerrainMap3DProps
     return result;
   }, [showTerrain, showRiskHeatmap, showLandslides, showDebrisFlows, riskGrid, landslides, debrisFlows]);
 
-  const handleMapError = useCallback(() => {
-    setMapError('3D map could not be loaded. Your device may not support WebGL.');
+  const handleMapError = useCallback((e: { error?: Error }) => {
+    const msg = e?.error?.message ?? '';
+    console.warn('[TerrainMap3D] Map error (non-fatal):', msg);
+    if (msg.toLowerCase().includes('webgl') || msg.toLowerCase().includes('context lost')) {
+      setMapError('3D map could not be loaded. Your device may not support WebGL.');
+    }
   }, []);
 
   if (mapError) {

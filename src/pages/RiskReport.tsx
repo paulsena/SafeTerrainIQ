@@ -141,18 +141,10 @@ export default function RiskReport() {
 
   const [computed, setComputed] = useState(false);
   const [landslidesGeo, setLandslidesGeo] = useState<GeoJSON.FeatureCollection | null>(null);
-  const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
 
   useEffect(() => {
     setStep(4);
   }, [setStep]);
-
-  // Track viewport for responsive map selection
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // Load landslides GeoJSON for the map
   useEffect(() => {
@@ -263,6 +255,78 @@ export default function RiskReport() {
           <LoadingSkeleton />
         ) : (
           <>
+            {/* 3D Terrain Map — hero visual */}
+            <motion.div
+              id="report-map-3d"
+              className="mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <p className="text-gray-500 text-xs uppercase tracking-wider font-medium mb-2">3D Terrain View</p>
+              <Suspense
+                fallback={
+                  <div
+                    className="rounded-xl overflow-hidden"
+                    style={{
+                      backgroundColor: '#243d50',
+                      minHeight: 400,
+                      border: '1px solid rgba(45, 74, 94, 0.3)',
+                    }}
+                  >
+                    <div className="h-full min-h-[400px] flex flex-col items-center justify-center gap-3">
+                      <Mountain className="w-10 h-10 text-light-slate" strokeWidth={1} />
+                      <span className="text-light-slate text-sm tracking-wider uppercase">
+                        Loading 3D terrain...
+                      </span>
+                    </div>
+                  </div>
+                }
+              >
+                <TerrainMap3D
+                  lat={location.coords.lat}
+                  lng={location.coords.lng}
+                  landslides={landslidesGeo}
+                />
+              </Suspense>
+            </motion.div>
+
+            {/* 2D Risk Overlay Map */}
+            <motion.div
+              id="report-map-2d"
+              className="mb-10"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <p className="text-gray-500 text-xs uppercase tracking-wider font-medium mb-2">Risk Overlay Map</p>
+              <Suspense
+                fallback={
+                  <div
+                    className="rounded-xl overflow-hidden"
+                    style={{
+                      backgroundColor: '#243d50',
+                      minHeight: 400,
+                      border: '1px solid rgba(45, 74, 94, 0.3)',
+                    }}
+                  >
+                    <div className="h-full min-h-[400px] flex flex-col items-center justify-center gap-3">
+                      <Mountain className="w-10 h-10 text-light-slate" strokeWidth={1} />
+                      <span className="text-light-slate text-sm tracking-wider uppercase">
+                        Loading risk map...
+                      </span>
+                    </div>
+                  </div>
+                }
+              >
+                <ReportMap2D
+                  lat={location.coords.lat}
+                  lng={location.coords.lng}
+                  landslides={landslidesGeo}
+                />
+              </Suspense>
+            </motion.div>
+
             {/* Risk Badge */}
             <div className="flex justify-center mb-12">
               <RiskBadge overall={riskResults.overall} averageScore={averageScore} />
@@ -286,49 +350,6 @@ export default function RiskReport() {
             <div className="mb-8">
               <AISummary summary={riskResults.aiSummary} delay={1.8} />
             </div>
-
-            {/* 3D/2D Terrain Map */}
-            <motion.div
-              id="report-map"
-              className="mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.2, duration: 0.5 }}
-            >
-              <Suspense
-                fallback={
-                  <div
-                    className="rounded-xl overflow-hidden"
-                    style={{
-                      backgroundColor: '#243d50',
-                      minHeight: 400,
-                      border: '1px solid rgba(45, 74, 94, 0.3)',
-                    }}
-                  >
-                    <div className="h-full min-h-[400px] flex flex-col items-center justify-center gap-3">
-                      <Mountain className="w-10 h-10 text-light-slate" strokeWidth={1} />
-                      <span className="text-light-slate text-sm tracking-wider uppercase">
-                        Loading terrain map...
-                      </span>
-                    </div>
-                  </div>
-                }
-              >
-                {isDesktop ? (
-                  <TerrainMap3D
-                    lat={location.coords.lat}
-                    lng={location.coords.lng}
-                    landslides={landslidesGeo}
-                  />
-                ) : (
-                  <ReportMap2D
-                    lat={location.coords.lat}
-                    lng={location.coords.lng}
-                    landslides={landslidesGeo}
-                  />
-                )}
-              </Suspense>
-            </motion.div>
 
             {/* Next Steps CTA */}
             <motion.div

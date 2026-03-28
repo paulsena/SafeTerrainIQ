@@ -159,8 +159,13 @@ export default function ReportMap2D({ lat, lng, landslides }: ReportMap2DProps) 
     return result;
   }, [showRiskHeatmap, showLandslides, showDebrisFlows, riskGrid, landslides, debrisFlows]);
 
-  const handleMapError = useCallback(() => {
-    setMapError('Map could not be loaded on this device.');
+  const handleMapError = useCallback((e: { error?: Error }) => {
+    // Only treat WebGL context lost as a fatal error — ignore tile/style load errors
+    const msg = e?.error?.message ?? '';
+    console.warn('[ReportMap2D] Map error (non-fatal):', msg);
+    if (msg.toLowerCase().includes('webgl') || msg.toLowerCase().includes('context lost')) {
+      setMapError('Map could not be loaded on this device.');
+    }
   }, []);
 
   if (mapError) {
