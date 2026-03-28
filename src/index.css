@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage: #4a7c59;
+  --color-sage-light: #5a9469;
+  --color-moss: #8faa7e;
+  --color-moss-light: #8fca7e;
+  --color-terracotta: #c4a572;
+  --color-warm-white: #f5f0e8;
+  --color-warm-gray: #6b6b6b;
+  --color-deep-slate: #1a2d3d;
+  --color-mid-slate: #243d50;
+  --color-light-slate: #2d4a5e;
+  --color-alert-red: #d4453b;
+  --color-warning-amber: #e8a838;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* MapLibre overrides */
+.maplibregl-canvas {
+  outline: none;
+}
+
+/* Mapbox Search overrides  */
+.mapboxgl-ctrl-geocoder {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* Custom scrollbar for dark theme */
+.dark-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.dark-scroll::-webkit-scrollbar-track {
+  background: var(--color-deep-slate);
+}
+.dark-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-light-slate);
+  border-radius: 3px;
+}

@@ -1,0 +1,75 @@
+I'm doing a weekend hackathon. I need a MVP prototype for my idea. Here is some of my bussiness canvas.
+Lets ultrathink, and build a quick effective MVP for my app prototype. Data in the backend can be mocked somewhat.
+I would like to use real map data and Asheville, NC as my location.
+
+I'm going to give you an early draft of my PRD / Design / ETc. Lets plan and iterated on this.
+I'd like to build a planning doc, then later build an implementation plan, to have agents builds this.
+
+
+### THE PROBLEM STATEMENT
+
+In September 2024, the mountains around Asheville and WNC came down. Thousands of landslides. 31 lives lost. When recovery began, one question stopped everything: where is it safe to rebuild?
+The demand for expert hazard assessments has overwhelmed the capacity of the few specialists who can answer that question. Meanwhile, the companies already using this data are using it to protect their shareholders — not the homeowners living on the hillside.
+SafeTerrainIQ changes that — putting expert-level geohazard intelligence directly in the hands of homeowners, engineers, and communities.
+
+Expert-level geohazard assessments take weeks to months, cost tens of thousands of dollars, and require specialists that most developers, homeowners, and municipalities cannot access. No platform currently exists that delivers this directly to the people who need it most.
+
+
+### THE SOLUTION
+
+Search for any property, get a hazard and risk assessment in the same day — powered by real numerical modeling and an agentic AI trained by landslide experts that learns YOUR risk profile and tailors results to YOU and your home.
+The dirt delivered right to your dashboard.
+
+
+### CUSTOMER
+
+Home property inspector + home buyers. Home inspectors will use this to run an assessment for a property then give the report to the home buy. Property inspectors pay us, customers also use our product
+
+
+### PLATFORM CAPABILITIES
+
+- Debris flow runout, slope stability, landslide susceptibility, and surface water runoff — automated for any selected parcel address that you ender
+- Give me some ideas on other useful data to visualize that a home inspector and a home owner would want. I'm thinking a simple overhead map with a few layers drawn over it like risk areas. Then a 3d terrain map of the property with a few different toggable layers. I think it would be important to show landslide risk areas and potenial landslide flow.
+- After initial assessment, Expert-trained AI assesses your background, learns your risk tolerance, and tailors every assessment to your personal risk profile. User can discuss with an agent and ask follow up questions, guage risk(from model), reach potential professionals, etc, next steps. This can be a chat interface at the end and at bottom of report
+
+
+### Technical Design
+
+- Mobile and desktop friedly reactive web app
+- Use common UI libraries that you are most familiar with.
+- Potential viz librarys for the maps portion:
+  - Dec.gl - https://deck.gl/ - It uses WebGPU/WebGL to render millions of points (e.g., sensor data) and supports TerrainLayer for 3D elevation. Explore the TerrainLayer. ScreenGridLayer would be great to show a grid of risk per small square over the land parcel which is data from the model. Value shows risk of that area for lanslide. TripsLayer for showing landslide flow.
+  - MapLibre GL JS - https://maplibre.org/maplibre-gl-js/docs/examples/3d-terrain/
+  - Three.js - Maybe for showing the houses as visualizations on the map if the other existing libraries don't have that feature.
+- As much data as possible can be mocked for the hackathon. Map data should be real and so testers can search real properties
+- Brainstorm UI design themes that would work for my my user base (home owners viewing reports and home inspectors entering in info)
+- We have a propietary trained model that is generated from our expert geologist and publically available data and public models. This will all be mocked for this hackathon and we can best estimate some data so the visualizations are believable for the searched property. Maybe we pull in slope and past landsland from public data like USGS, GIS, etc.
+
+
+### User Flow Of App
+
+- Landing page. Address search. Topological background. Professional looking. Some landslide graphic in the background
+- After address search on landing page, we show the user a map of their property
+- We then prompt the user with a series of questions. These questions can be clickable, multiple choice, sliders, buttons, etc.
+- I'll fill in questions later but here are some starter ones:
+  - Have you observed any visible cracks in the soil around your property? If so, how severe would you say they are? 
+  - Are there any tilting trees, fences, or retaining walls on or near your property?
+  - How would you describe the drainage situation around your property? 
+  - What is the estimated slope of your property? (Flat <5 deg, Gentle 5-15 deg, Moerate 15-30, Steep > 30) [This question would be great to show a visualization of slope for the home owner. We can pull in data based on their address and suggest / prefill. Data can be all mocked for hackathon]
+- After qestions, we show a beautiful data forward and visual report for the user showing past landslides, potential landslides on their property, an summary from AI based on our mocked model data and publicly available data as if it was from a Geological engineer.
+- User can enter an email to send a pdf of the report
+- Users can also talk to an AI chat bot at the end to ask follow up questions
+- User can explore potential professionals like geological surveyers to help as next steps. Resolution
+
+
+### Report Generated
+
+- Summary risk assessement summary
+- Nice map visualization of landslide risks. Maybe a few different visualizations depeneding on the data
+- Visualization of potential landslide flow
+- Links / Next steps to Professional engineers + geologists in your area to help you deal with the risk if identified
+- Report that is viewableon web can be generated to a PDF version that is mailable to the home owner / customer. This can be simly a mail to text box.
+
+### Sample Data for a big landslide area
+Garren Creek, Faireview, NC
+

@@ -1,0 +1,1525 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39037,
+          35.47166
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37162,
+          35.48205
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39872,
+          35.48658
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40916,
+          35.48624
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38166,
+          35.49492
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41106,
+          35.47429
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41051,
+          35.47511
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40647,
+          35.48853
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37198,
+          35.47657
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39756,
+          35.48661
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4122,
+          35.48788
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41425,
+          35.47
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37625,
+          35.49727
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38335,
+          35.48154
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41118,
+          35.48612
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37386,
+          35.49313
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39256,
+          35.49946
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38349,
+          35.49997
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38567,
+          35.48597
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38831,
+          35.49653
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39086,
+          35.47038
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37231,
+          35.49011
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40839,
+          35.49553
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39636,
+          35.48509
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38446,
+          35.4857
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38377,
+          35.48965
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37858,
+          35.48977
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39206,
+          35.49095
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37895,
+          35.47954
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38175,
+          35.47583
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41642,
+          35.59421
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.35831,
+          35.60884
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38904,
+          35.60271
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41807,
+          35.61727
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41788,
+          35.61307
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41581,
+          35.59014
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37854,
+          35.6138
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37758,
+          35.60462
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37664,
+          35.59266
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37029,
+          35.60175
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38212,
+          35.59104
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41273,
+          35.5919
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40301,
+          35.6079
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40213,
+          35.59385
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.36208,
+          35.59525
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40659,
+          35.61666
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41039,
+          35.59107
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38607,
+          35.61151
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.36603,
+          35.602
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.39137,
+          35.61595
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.31997,
+          35.43097
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.29674,
+          35.45974
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.33002,
+          35.45998
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.29816,
+          35.44684
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.31462,
+          35.44035
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.31769,
+          35.45027
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.34285,
+          35.45247
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.34252,
+          35.43611
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.32571,
+          35.44816
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.32268,
+          35.44761
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.29332,
+          35.45324
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.33927,
+          35.45999
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.29598,
+          35.44877
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.34305,
+          35.43829
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.3354,
+          35.45326
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.48034,
+          35.55709
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45132,
+          35.57319
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.47057,
+          35.57223
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.46739,
+          35.55643
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.48481,
+          35.56844
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.46933,
+          35.56695
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.48002,
+          35.56746
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.49928,
+          35.56781
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45198,
+          35.57722
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45426,
+          35.5778
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.43597,
+          35.4454
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.49202,
+          35.48689
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.48169,
+          35.44399
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.53799,
+          35.49031
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.52198,
+          35.51172
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.46168,
+          35.44231
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.47715,
+          35.48613
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.54074,
+          35.49588
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4818,
+          35.45213
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45977,
+          35.51137
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45206,
+          35.52151
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40798,
+          35.54618
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.54754,
+          35.46642
+        ]
+      },
+      "properties": {
+        "type": "rockslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.43521,
+          35.5537
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.42696,
+          35.46027
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.45646,
+          35.45947
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.41716,
+          35.49749
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.52067,
+          35.46447
+        ]
+      },
+      "properties": {
+        "type": "mudslide",
+        "confidence": "probable",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.40942,
+          35.54558
+        ]
+      },
+      "properties": {
+        "type": "debris_flow",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.44247,
+          35.50571
+        ]
+      },
+      "properties": {
+        "type": "earth_slide",
+        "confidence": "confirmed",
+        "date": "2024-09-27",
+        "source": "USGS Preliminary Inventory"
+      }
+    }
+  ]
+}

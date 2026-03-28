@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Blue Ridge Geotechnical Engineers",
+    "specialty": "Geotechnical Engineering",
+    "phone": "(828) 254-7130",
+    "website": "https://blueridgegeotech.com",
+    "address": "14 Tunnel Rd, Asheville, NC 28805",
+    "description": "Full-service geotechnical firm specializing in slope stability analysis, foundation design, and landslide mitigation for Western North Carolina. Over 25 years of experience in mountain terrain."
+  },
+  {
+    "name": "Appalachian Geological Consultants",
+    "specialty": "Geological Surveying & Hazard Assessment",
+    "phone": "(828) 670-8244",
+    "website": "https://appalachiangeological.com",
+    "address": "31 College Place, Suite 200, Asheville, NC 28801",
+    "description": "Geological hazard assessments, terrain mapping, and subsurface investigations. Specializing in debris flow risk evaluation and post-storm damage assessment."
+  },
+  {
+    "name": "Mountain Slope Solutions",
+    "specialty": "Slope Stabilization & Retaining Walls",
+    "phone": "(828) 505-1192",
+    "website": "https://mountainslopesolutions.com",
+    "address": "85 Sweeten Creek Rd, Asheville, NC 28803",
+    "description": "Design and construction of slope stabilization systems including soil nails, retaining walls, and drainage solutions for residential and commercial properties."
+  },
+  {
+    "name": "Pisgah Environmental & Geotechnical",
+    "specialty": "Environmental & Geotechnical Engineering",
+    "phone": "(828) 274-3560",
+    "website": "https://pisgahenviro.com",
+    "address": "520 Hendersonville Rd, Asheville, NC 28803",
+    "description": "Combined environmental and geotechnical services including Phase I/II assessments, stormwater management, and slope stability analysis for development projects."
+  },
+  {
+    "name": "WNC Soil & Foundation Engineers",
+    "specialty": "Soil Testing & Foundation Design",
+    "phone": "(828) 684-7021",
+    "website": "https://wncsoilfoundation.com",
+    "address": "198 Charlotte Hwy, Asheville, NC 28803",
+    "description": "Soil borings, percolation testing, and foundation engineering for mountain building sites. Expertise in colluvial soils and weathered bedrock common to the region."
+  },
+  {
+    "name": "Buncombe Land Surveyors",
+    "specialty": "Land Surveying & Topographic Mapping",
+    "phone": "(828) 298-4455",
+    "website": "https://buncombelandsurvey.com",
+    "address": "1042 Patton Ave, Asheville, NC 28806",
+    "description": "Boundary surveys, topographic mapping, and ALTA surveys. High-resolution terrain analysis using LiDAR and drone photogrammetry for slope assessment."
+  },
+  {
+    "name": "Craggy Mountain Engineering Group",
+    "specialty": "Civil & Geotechnical Engineering",
+    "phone": "(828) 350-8837",
+    "website": "https://craggymountaineng.com",
+    "address": "60 Commerce St, Asheville, NC 28801",
+    "description": "Civil engineering and site development with deep expertise in mountain grading, erosion control, and stormwater management for steep terrain construction."
+  }
+]
