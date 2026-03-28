@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Map from 'react-map-gl/maplibre';
 import DeckGLOverlay from './DeckGLOverlay';
+import ReportMap2D from './ReportMap2D';
 import { TerrainLayer } from '@deck.gl/geo-layers';
 import { ScatterplotLayer, PathLayer } from '@deck.gl/layers';
 import { HeatmapLayer } from '@deck.gl/aggregation-layers';
@@ -187,20 +188,7 @@ export default function TerrainMap3D({ lat, lng, landslides }: TerrainMap3DProps
   }, []);
 
   if (mapError) {
-    return (
-      <div
-        className="rounded-xl overflow-hidden flex items-center justify-center"
-        style={{
-          minHeight: 400,
-          backgroundColor: '#243d50',
-          border: '1px solid rgba(45, 74, 94, 0.3)',
-        }}
-      >
-        <div className="text-center px-6">
-          <p className="text-gray-400 text-sm">{mapError}</p>
-        </div>
-      </div>
-    );
+    return <ReportMap2D lat={lat} lng={lng} landslides={landslides} />;
   }
 
   return (
