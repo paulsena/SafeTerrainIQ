@@ -168,7 +168,7 @@ export default function LandingPage() {
             <button onClick={() => scrollTo(howItWorksRef)} className="hover:text-sage transition-colors">How It Works</button>
             <button onClick={() => scrollTo(aboutRef)} className="hover:text-sage transition-colors">About</button>
             <button onClick={() => scrollTo(inspectorsRef)} className="hover:text-sage transition-colors">For Inspectors</button>
-            <button onClick={() => scrollTo(landslidesRef)} className="hover:text-sage transition-colors">Landslides Info</button>
+            <button onClick={() => scrollTo(landslidesRef)} className="hover:text-sage transition-colors">About Landslides</button>
           </div>
           {/* Mobile hamburger */}
           <button className="md:hidden text-warm-gray" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -181,7 +181,7 @@ export default function LandingPage() {
             <button onClick={() => scrollTo(howItWorksRef)} className="text-left hover:text-sage transition-colors">How It Works</button>
             <button onClick={() => scrollTo(aboutRef)} className="text-left hover:text-sage transition-colors">About</button>
             <button onClick={() => scrollTo(inspectorsRef)} className="text-left hover:text-sage transition-colors">For Inspectors</button>
-            <button onClick={() => scrollTo(landslidesRef)} className="text-left hover:text-sage transition-colors">Landslides Info</button>
+            <button onClick={() => scrollTo(landslidesRef)} className="text-left hover:text-sage transition-colors">About Landslides</button>
           </div>
         )}
       </nav>
@@ -419,7 +419,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Landslides Info ── */}
+      {/* ── About Landslides ── */}
       <section ref={landslidesRef} className="relative z-10 py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center">Understanding Landslide Risk</h2>
@@ -475,7 +475,7 @@ export default function LandingPage() {
             <button onClick={() => scrollTo(howItWorksRef)} className="hover:text-sage transition-colors">How It Works</button>
             <button onClick={() => scrollTo(aboutRef)} className="hover:text-sage transition-colors">About</button>
             <button onClick={() => scrollTo(inspectorsRef)} className="hover:text-sage transition-colors">For Inspectors</button>
-            <button onClick={() => scrollTo(landslidesRef)} className="hover:text-sage transition-colors">Landslides Info</button>
+            <button onClick={() => scrollTo(landslidesRef)} className="hover:text-sage transition-colors">About Landslides</button>
           </div>
         </div>
       </footer>
