@@ -285,10 +285,23 @@ export default function LandingPage() {
       {/* ── How It Works ── */}
       <section ref={howItWorksRef} className="relative z-10 bg-white/60 backdrop-blur-sm py-20 px-4">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4">How It Works</h2>
-          <p className="text-warm-gray mb-14 max-w-2xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            className="text-3xl md:text-4xl font-bold text-deep-slate mb-4"
+          >
+            How It Works
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ delay: 0.1 }}
+            className="text-warm-gray mb-14 max-w-2xl mx-auto"
+          >
             Three simple steps to understand your property's terrain risk.
-          </p>
+          </motion.p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -309,15 +322,25 @@ export default function LandingPage() {
                 title: 'Get Your Report',
                 desc: 'Receive a detailed risk assessment with 3D maps, risk scores, and actionable next steps — all in minutes.',
               },
-            ].map(({ icon: Icon, step, title, desc }) => (
-              <div key={step} className="flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-2xl bg-sage/10 flex items-center justify-center mb-4">
+            ].map(({ icon: Icon, step, title, desc }, idx) => (
+              <motion.div 
+                key={step} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: 0.2 + idx * 0.1 }}
+                className="flex flex-col items-center text-center group"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  className="w-14 h-14 rounded-2xl bg-sage/10 flex items-center justify-center mb-4 transition-colors group-hover:bg-sage/20"
+                >
                   <Icon className="w-6 h-6 text-sage" />
-                </div>
+                </motion.div>
                 <div className="text-xs font-semibold text-sage/60 uppercase tracking-wider mb-1">Step {step}</div>
                 <h3 className="text-lg font-semibold text-deep-slate mb-2">{title}</h3>
                 <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -326,11 +349,24 @@ export default function LandingPage() {
       {/* ── About ── */}
       <section ref={aboutRef} className="relative z-10 py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center">About SafeTerrainIQ</h2>
-          <p className="text-warm-gray text-center mb-10 max-w-2xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center"
+          >
+            About SafeTerrainIQ
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ delay: 0.1 }}
+            className="text-warm-gray text-center mb-10 max-w-2xl mx-auto"
+          >
             Built after Hurricane Helene devastated Western North Carolina, SafeTerrainIQ brings geotechnical-grade
             terrain analysis to everyday homeowners — no engineering degree required.
-          </p>
+          </motion.p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
@@ -353,16 +389,23 @@ export default function LandingPage() {
                 title: 'Plain-Language Reports',
                 desc: 'No jargon. Reports explain what the risk factors mean for your property and what practical steps you can take.',
               },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex gap-4 p-5 rounded-xl bg-white/50 border border-white/40">
-                <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0">
+            ].map(({ icon: Icon, title, desc }, idx) => (
+              <motion.div 
+                key={title} 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: 0.2 + idx * 0.05 }}
+                className="flex gap-4 p-5 rounded-xl bg-white/50 border border-white/40 hover:bg-white/70 transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110">
                   <Icon className="w-5 h-5 text-sage" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-deep-slate mb-1">{title}</h3>
                   <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -371,11 +414,24 @@ export default function LandingPage() {
       {/* ── For Inspectors ── */}
       <section ref={inspectorsRef} className="relative z-10 bg-deep-slate/[0.03] py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4">For Home Inspectors</h2>
-          <p className="text-warm-gray mb-10 max-w-2xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            className="text-3xl md:text-4xl font-bold text-deep-slate mb-4"
+          >
+            For Home Inspectors
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ delay: 0.1 }}
+            className="text-warm-gray mb-10 max-w-2xl mx-auto"
+          >
             Add geohazard intelligence to your inspection toolkit. Differentiate your services
             and give clients the terrain context they need.
-          </p>
+          </motion.p>
           <div className="grid md:grid-cols-3 gap-6 text-left">
             {[
               {
@@ -390,28 +446,56 @@ export default function LandingPage() {
                 title: 'Liability Awareness',
                 desc: 'Document terrain conditions as part of your due diligence. Flag properties that may need a geotechnical referral.',
               },
-            ].map(({ title, desc }) => (
-              <div key={title} className="p-5 rounded-xl bg-white/70 border border-white/40">
+            ].map(({ title, desc }, idx) => (
+              <motion.div 
+                key={title} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: 0.2 + idx * 0.1 }}
+                className="p-5 rounded-xl bg-white/70 border border-white/40 hover:bg-white shadow-sm hover:shadow-md transition-all"
+              >
+                <div className="w-10 h-10 rounded-full bg-deep-slate/5 text-deep-slate/60 flex items-center justify-center font-bold text-sm mb-3">
+                  0{idx + 1}
+                </div>
                 <h3 className="font-semibold text-deep-slate mb-2">{title}</h3>
                 <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-warm-gray/60">
+          <motion.p 
+             initial={{ opacity: 0 }}
+             whileInView={{ opacity: 1 }}
+             viewport={{ once: true }}
+             className="mt-8 text-sm text-warm-gray/60"
+          >
             Interested in inspector pricing?{' '}
             <a href="mailto:info@safeterrainiq.com" className="text-sage hover:underline">Get in touch</a>
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* ── About Landslides ── */}
       <section ref={landslidesRef} className="relative z-10 py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center">Understanding Landslide Risk</h2>
-          <p className="text-warm-gray text-center mb-12 max-w-2xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            className="text-3xl md:text-4xl font-bold text-deep-slate mb-4 text-center"
+          >
+            Understanding Landslide Risk
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ delay: 0.1 }}
+            className="text-warm-gray text-center mb-12 max-w-2xl mx-auto"
+          >
             Western North Carolina's steep terrain and heavy rainfall make it one of the highest
             landslide-risk regions east of the Rockies. Here's what drives that risk.
-          </p>
+          </motion.p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
@@ -434,16 +518,23 @@ export default function LandingPage() {
                 title: 'Historical Patterns',
                 desc: 'Areas that have slid before are more likely to slide again. Our analysis overlays your property with known landslide inventories and historical event data.',
               },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex gap-4 p-5 rounded-xl bg-white/50 border border-white/40">
-                <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            ].map(({ icon: Icon, title, desc }, idx) => (
+              <motion.div 
+                key={title} 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ delay: 0.2 + idx * 0.05 }}
+                className="flex gap-4 p-5 rounded-xl bg-white/50 border border-white/40 hover:bg-white/70 transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-sage/10 flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform group-hover:scale-110">
                   <Icon className="w-5 h-5 text-sage" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-deep-slate mb-1">{title}</h3>
                   <p className="text-sm text-warm-gray leading-relaxed">{desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
