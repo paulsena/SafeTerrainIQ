@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# SafeTerrainIQ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Know Your Ground. Protect Your Home.**
 
-Currently, two official plugins are available:
+*SafeTerrainIQ is an MVP prototype built for a weekend hackathon, designed to deliver expert-level geohazard intelligence directly to homeowners in Western North Carolina.*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## The Problem
+In September 2024, Hurricane Helene triggered thousands of landslides across Asheville and Western North Carolina (WNC), tragically killing 31 people. As recovery and rebuilding efforts began, a critical question emerged for thousands of residents: **"Where is it safe to rebuild?"**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Currently, that question has no accessible answer. Professional expert geohazard assessments take weeks to months, cost tens of thousands of dollars, and require specialized geologists that most homeowners simply cannot access or afford. 
 
-## Expanding the ESLint configuration
+While insurance companies and commercial developers use sophisticated GIS and terrain data to protect their investments, the people living on the hillsides are left in the dark. **No platform currently delivers geohazard intelligence directly into the hands of homeowners.**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## The Solution
+SafeTerrainIQ bridges this gap. It empowers any homeowner or prospective buyer to search their property address and receive a comprehensive **landslide risk assessment in minutes**—powered by real regional terrain data and risk models. 
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+By answering a short guided questionnaire about ground observations, homeowners receive a plain-language hazard report evaluating four critical dimensions:
+1. **Slope Stability**
+2. **Debris Flow Risk**
+3. **Surface Water Runoff**
+4. **Landslide Susceptibility**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Product Features (MVP)
+- **Address-Based Profiling:** Search any address within Buncombe County to immediately look up its exact slope percentage and elevation from Buncombe County ArcGIS servers.
+- **Guided Assessment Wizard:** An intuitive, 5-step questionnaire asking homeowners about physical ground indicators (e.g., soil cracks, tilting trees, drainage issues).
+- **Comprehensive Risk Report:** An authoritative breakdown of geohazard risk, combining the user's ground observations with real terrain indicators and proximity to known USGS landslide events. 
+- **3D Terrain & Data Visualization:** An interactive Deck.gl mapping interface displaying the home on a 3D topographic mesh, overlaid with a risk heatmap, documented Helene landslides (USGS ScienceBase), and simulated debris flow paths. 
+- **AI Geotechnical Assistant:** A Claude-powered chat interface contextually aware of the property's specific risk profile, ready to answer follow-up questions about mitigation and next steps.
+- **Next Steps & Professional Directory:** Direct connections to real local geotechnical engineers and an option to export the assessment as a PDF.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Technical Implementation
+This MVP was engineered over a weekend using a modern React stack. It combines robust front-end web technologies with complex GIS data querying capabilities:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Framework:** React 19 + TypeScript + Vite 6
+- **Styling:** Tailwind CSS 4 (utilizing a bespoke "Calm to Data Authority" dynamic theme shift)
+- **Maps & 3D Visualization:** MapLibre GL JS (2D basemaps) + Deck.gl (3D terrain layers, heatmaps, scatterplots, paths)
+- **Location & Geocoding:** Mapbox Search JS React
+- **Live Data Connectors:** Buncombe County ArcGIS REST APIs (for real-time live-pixel slope & elevation inference)
+- **State Management:** Zustand 5
+- **Animations:** Framer Motion 12
+- **AI:** Anthropic API (Claude) proxy for contextual geohazard chat
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Install dependencies (utilizing legacy peer deps due to map dependency overlap with React 19):
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+2. Create a `.env.local` file utilizing `VITE_MAPBOX_ACCESS_TOKEN` and `VITE_CLAUDE_API_KEY`.
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+
+*Note: SafeTerrainIQ live data currently strictly enforces bounding boxes for Buncombe County, NC. Addresses outside of this region will be flagged as outside the service area.*
