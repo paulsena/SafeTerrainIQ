@@ -4,6 +4,7 @@ import DeckGLOverlay from './DeckGLOverlay';
 import ReportMap2D from './ReportMap2D';
 import { TerrainLayer } from '@deck.gl/geo-layers';
 import { ScatterplotLayer, PathLayer } from '@deck.gl/layers';
+import type { Layer } from '@deck.gl/core';
 import { HeatmapLayer } from '@deck.gl/aggregation-layers';
 import { MAP_STYLES, TILE_SOURCES } from '../../lib/constants';
 
@@ -84,7 +85,7 @@ export default function TerrainMap3D({ lat, lng, landslides }: TerrainMap3DProps
 
   // Build deck.gl layers
   const layers = useMemo(() => {
-    const result: unknown[] = [];
+    const result: Layer[] = [];
 
     // 3D Terrain mesh
     if (showTerrain) {
@@ -167,7 +168,7 @@ export default function TerrainMap3D({ lat, lng, landslides }: TerrainMap3DProps
         new PathLayer({
           id: 'debris-flow-paths',
           data: pathData,
-          getPath: (d: { path: number[][] }) => d.path,
+          getPath: (d: { path: number[][] }) => d.path as unknown as number[],
           getColor: [212, 69, 59, 200],
           getWidth: 4,
           widthMinPixels: 2,

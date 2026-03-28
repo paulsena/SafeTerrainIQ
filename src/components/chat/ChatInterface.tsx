@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
+
 import { Send, MessageCircle } from 'lucide-react';
 import ChatMessage from './ChatMessage';
 import { useAppStore } from '../../stores/appStore';

@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import Map from 'react-map-gl/maplibre';
 import DeckGLOverlay from './DeckGLOverlay';
 import { ScatterplotLayer, PathLayer } from '@deck.gl/layers';
+import type { Layer } from '@deck.gl/core';
 import { HeatmapLayer } from '@deck.gl/aggregation-layers';
 import { MAP_STYLES } from '../../lib/constants';
 
@@ -81,7 +82,7 @@ export default function ReportMap2D({ lat, lng, landslides }: ReportMap2DProps) 
 
   // Build deck.gl layers (no TerrainLayer for mobile performance)
   const layers = useMemo(() => {
-    const result: unknown[] = [];
+    const result: Layer[] = [];
 
     // Risk heatmap
     if (showRiskHeatmap && riskGrid) {
@@ -143,7 +144,7 @@ export default function ReportMap2D({ lat, lng, landslides }: ReportMap2DProps) 
         new PathLayer({
           id: 'debris-flow-paths',
           data: pathData,
-          getPath: (d: { path: number[][] }) => d.path,
+          getPath: (d: { path: number[][] }) => d.path as unknown as number[],
           getColor: [212, 69, 59, 200],
           getWidth: 3,
           widthMinPixels: 2,
