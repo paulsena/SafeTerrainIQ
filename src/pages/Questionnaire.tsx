@@ -296,11 +296,11 @@ function DrainageQuestion({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="w-full flex justify-center rounded-xl overflow-hidden border border-warm-gray/20 shadow-sm bg-white shrink-0 mb-1">
+      <div className="w-full flex justify-center shrink-0 mb-1">
         <img 
           src="/images/drainage_graphic.png"
           alt="Infographic showing water drainage paths, pooling, and surface runoff on a residential grassy slope"
-          className="w-full max-h-60 object-contain"
+          className="w-full max-h-60 object-contain rounded-xl overflow-hidden"
         />
       </div>
       {options.map((opt) => (
@@ -593,6 +593,7 @@ export default function Questionnaire() {
             <span className="text-xs font-semibold tracking-wide text-sage uppercase">
               Question {qIndex + 1} of {QUESTIONS.length}
             </span>
+            <p className="text-[11px] text-gray-400 mt-0.5">(sample of questions)</p>
           </div>
 
           <AnimatePresence mode="wait" custom={direction}>
