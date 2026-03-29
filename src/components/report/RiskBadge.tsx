@@ -49,7 +49,7 @@ export default function RiskBadge({ overall, averageScore }: RiskBadgeProps) {
           >
             {averageScore}
           </span>
-          <span className="text-[10px] uppercase tracking-widest text-gray-400 mt-0.5">
+          <span className="text-[10px] uppercase tracking-widest text-warm-gray/60 mt-0.5">
             out of 100
           </span>
         </div>

@@ -34,13 +34,13 @@ function LoadingSkeleton() {
     <div className="flex flex-col items-center gap-8 w-full max-w-3xl mx-auto px-4 py-12">
       {/* Pulsing badge skeleton */}
       <motion.div
-        className="w-40 h-40 rounded-full bg-mid-slate"
+        className="w-40 h-40 rounded-full bg-warm-gray/10"
         animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       />
 
       <motion.div
-        className="w-36 h-8 rounded-full bg-mid-slate"
+        className="w-36 h-8 rounded-full bg-warm-gray/10"
         animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
       />
@@ -50,7 +50,7 @@ function LoadingSkeleton() {
         {[0, 1, 2, 3].map((i) => (
           <motion.div
             key={i}
-            className="h-36 rounded-xl bg-mid-slate"
+            className="h-36 rounded-xl bg-warm-gray/10"
             animate={{ opacity: [0.2, 0.5, 0.2] }}
             transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
           />
@@ -59,14 +59,14 @@ function LoadingSkeleton() {
 
       {/* Summary skeleton */}
       <motion.div
-        className="w-full h-32 rounded-xl bg-mid-slate"
+        className="w-full h-32 rounded-xl bg-warm-gray/10"
         animate={{ opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
       />
 
       {/* Scanning text */}
       <motion.p
-        className="text-light-slate text-sm tracking-wider uppercase"
+        className="text-warm-gray text-sm tracking-wider uppercase"
         animate={{ opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
@@ -226,12 +226,10 @@ export default function RiskReport() {
     : 0;
 
   return (
-    <PageTransition className="min-h-screen bg-deep-slate dark-scroll overflow-y-auto">
-      {/* Progress bar - dark themed */}
-      <div className="pt-6 pb-4">
-        <div className="[&_span]:!text-gray-500 [&_.bg-warm-white]:!bg-light-slate/40 [&_.ring-offset-2]:!ring-offset-deep-slate [&_.bg-sage]:!bg-sage [&_.bg-warm-white\\/50]:!bg-light-slate/30 [&_div[class*='border']]:!border-light-slate/40 [&_div:not(.bg-sage)]:text-gray-400">
-          <ProgressBar currentStep={4} totalSteps={5} />
-        </div>
+    <PageTransition className="min-h-screen bg-warm-white flex flex-col pt-safe px-safe overflow-y-auto overflow-x-hidden">
+      {/* Progress bar */}
+      <div className="pt-6 pb-4 px-4">
+        <ProgressBar currentStep={4} totalSteps={5} />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 pb-16">
@@ -242,10 +240,10 @@ export default function RiskReport() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
         >
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold text-deep-slate mb-2">
             Risk Assessment Report
           </h1>
-          <div className="flex items-center justify-center gap-2 text-gray-400 text-sm">
+          <div className="flex items-center justify-center gap-2 text-warm-gray text-sm">
             <MapPin className="w-4 h-4" />
             <span>{location.address}</span>
           </div>
@@ -290,17 +288,10 @@ export default function RiskReport() {
               <p className="text-gray-500 text-xs uppercase tracking-wider font-medium mb-2">3D Terrain View</p>
               <Suspense
                 fallback={
-                  <div
-                    className="rounded-xl overflow-hidden"
-                    style={{
-                      backgroundColor: '#243d50',
-                      minHeight: 400,
-                      border: '1px solid rgba(45, 74, 94, 0.3)',
-                    }}
-                  >
+                  <div className="rounded-xl overflow-hidden bg-warm-gray/10 border border-warm-gray/20 min-h-[400px]">
                     <div className="h-full min-h-[400px] flex flex-col items-center justify-center gap-3">
-                      <Mountain className="w-10 h-10 text-light-slate" strokeWidth={1} />
-                      <span className="text-light-slate text-sm tracking-wider uppercase">
+                      <Mountain className="w-10 h-10 text-warm-gray/50" strokeWidth={1} />
+                      <span className="text-warm-gray/70 text-sm tracking-wider uppercase">
                         Loading 3D terrain...
                       </span>
                     </div>
@@ -326,17 +317,10 @@ export default function RiskReport() {
               <p className="text-gray-500 text-xs uppercase tracking-wider font-medium mb-2">Risk Overlay Map</p>
               <Suspense
                 fallback={
-                  <div
-                    className="rounded-xl overflow-hidden"
-                    style={{
-                      backgroundColor: '#243d50',
-                      minHeight: 400,
-                      border: '1px solid rgba(45, 74, 94, 0.3)',
-                    }}
-                  >
+                  <div className="rounded-xl overflow-hidden bg-warm-gray/10 border border-warm-gray/20 min-h-[400px]">
                     <div className="h-full min-h-[400px] flex flex-col items-center justify-center gap-3">
-                      <Mountain className="w-10 h-10 text-light-slate" strokeWidth={1} />
-                      <span className="text-light-slate text-sm tracking-wider uppercase">
+                      <Mountain className="w-10 h-10 text-warm-gray/50" strokeWidth={1} />
+                      <span className="text-warm-gray/70 text-sm tracking-wider uppercase">
                         Loading risk map...
                       </span>
                     </div>

@@ -24,9 +24,8 @@ export default function RiskCategoryCard({
 
   return (
     <motion.div
-      className="relative rounded-xl overflow-hidden"
+      className="relative rounded-xl overflow-hidden bg-white shadow-sm border border-l-0 border-warm-gray/20"
       style={{
-        backgroundColor: '#243d50',
         borderLeft: `4px solid ${color}`,
       }}
       initial={{ x: -30, opacity: 0 }}
@@ -44,7 +43,7 @@ export default function RiskCategoryCard({
               <Icon className="w-5 h-5" style={{ color }} strokeWidth={1.5} />
             </div>
             <div>
-              <h3 className="text-white font-semibold text-sm">{title}</h3>
+              <h3 className="text-deep-slate font-semibold text-sm">{title}</h3>
               <span
                 className="text-xs font-medium uppercase tracking-wider"
                 style={{ color }}
@@ -54,15 +53,15 @@ export default function RiskCategoryCard({
             </div>
           </div>
           <div className="text-right">
-            <span className="text-2xl font-bold text-white tabular-nums">
+            <span className="text-2xl font-bold text-deep-slate tabular-nums">
               {score}
             </span>
-            <span className="text-xs text-gray-500 ml-0.5">/100</span>
+            <span className="text-xs text-warm-gray/60 ml-0.5">/100</span>
           </div>
         </div>
 
         {/* Score bar */}
-        <div className="w-full h-2 rounded-full bg-deep-slate/60 mb-3 overflow-hidden">
+        <div className="w-full h-2 rounded-full bg-warm-gray/20 mb-3 overflow-hidden">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: color }}
@@ -73,7 +72,7 @@ export default function RiskCategoryCard({
         </div>
 
         {/* Description */}
-        <p className="text-gray-400 text-xs leading-relaxed">{description}</p>
+        <p className="text-warm-gray text-xs leading-relaxed">{description}</p>
       </div>
     </motion.div>
   );

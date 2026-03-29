@@ -40,9 +40,10 @@ function LayerToggle({
       onClick={onClick}
       className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer"
       style={{
-        backgroundColor: active ? 'rgba(36, 61, 80, 0.95)' : 'rgba(36, 61, 80, 0.6)',
-        color: active ? '#e5e7eb' : '#6b7280',
-        border: active ? `1.5px solid ${color}` : '1.5px solid rgba(45, 74, 94, 0.4)',
+        backgroundColor: active ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.7)',
+        color: active ? '#1a2d3d' : '#6b6b6b',
+        border: active ? `1.5px solid ${color}` : '1.5px solid rgba(107, 107, 107, 0.2)',
+        boxShadow: active ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
       }}
     >
       {label}
@@ -228,11 +229,11 @@ export default function TerrainMap3D({ lat, lng, landslides }: TerrainMap3DProps
 
       {/* Map */}
       <div
-        className="rounded-xl overflow-hidden"
+        className="rounded-xl overflow-hidden bg-white shadow-sm"
         style={{
           minHeight: 400,
           height: 500,
-          border: '1px solid rgba(45, 74, 94, 0.3)',
+          border: '1px solid rgba(107, 107, 107, 0.2)',
         }}
       >
         <Map
@@ -244,7 +245,7 @@ export default function TerrainMap3D({ lat, lng, landslides }: TerrainMap3DProps
             bearing: -15,
           }}
           style={{ width: '100%', height: '100%' }}
-          mapStyle={MAP_STYLES.dark}
+          mapStyle={MAP_STYLES.light}
           maxPitch={75}
           onError={handleMapError}
         >

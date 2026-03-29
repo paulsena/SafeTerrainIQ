@@ -17,6 +17,7 @@ import {
   X,
 } from 'lucide-react';
 import PageTransition from '../components/layout/PageTransition';
+import Logo from '../components/ui/Logo';
 import { useAppStore } from '../stores/appStore';
 import { isInsideBuncombe } from '../lib/geocoding';
 import { DEMO_ADDRESSES } from '../lib/constants';
@@ -139,7 +140,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/60 border-b border-white/30">
         <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-14">
           <div className="flex items-center gap-2">
-            <Mountain className="w-5 h-5 text-sage" />
+            <Logo size={24} />
             <span className="font-semibold text-deep-slate tracking-wide text-sm">SafeTerrainIQ</span>
           </div>
           {/* Desktop links */}
@@ -174,8 +175,8 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Mountain className="w-8 h-8 text-sage" />
+          <div className="flex items-center justify-center mb-6">
+            <Logo size={80} className="shadow-xl rounded-[20px]" />
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-deep-slate">
             SafeTerrain<span className="text-moss-light">IQ</span>
@@ -189,15 +190,16 @@ export default function LandingPage() {
           </p>
         </motion.div>
 
-        {/* Search bar — frosted glass */}
+        {/* Search bar */}
         <motion.div
-          className="w-full max-w-xl mb-6"
+          className="w-full max-w-xl mb-6 relative z-20 group"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="relative backdrop-blur-xl bg-white/70 rounded-2xl shadow-xl border border-white/40 p-2 search-box-container">
+          <div className="relative backdrop-blur-xl bg-white/95 rounded-2xl shadow-2xl shadow-gray-400/40 border-2 border-sage/40 p-2.5 transition-colors duration-300 search-box-container">
             <SearchBox
+              placeholder="Enter Your Address..."
               accessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN || 'YOUR_MAPBOX_TOKEN_HERE'}
               options={{ bbox: [-82.85, 35.40, -82.25, 35.80], language: 'en' }}
               onRetrieve={(res) => {

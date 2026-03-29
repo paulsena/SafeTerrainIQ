@@ -38,9 +38,10 @@ function LayerToggle({
       onClick={onClick}
       className="px-2.5 py-1 rounded-md text-[11px] font-medium transition-all duration-200 cursor-pointer"
       style={{
-        backgroundColor: active ? 'rgba(36, 61, 80, 0.95)' : 'rgba(36, 61, 80, 0.6)',
-        color: active ? '#e5e7eb' : '#6b7280',
-        border: active ? `1.5px solid ${color}` : '1.5px solid rgba(45, 74, 94, 0.4)',
+        backgroundColor: active ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.7)',
+        color: active ? '#1a2d3d' : '#6b6b6b',
+        border: active ? `1.5px solid ${color}` : '1.5px solid rgba(107, 107, 107, 0.2)',
+        boxShadow: active ? '0 2px 4px rgba(0,0,0,0.05)' : 'none',
       }}
     >
       {label}
@@ -172,15 +173,14 @@ export default function ReportMap2D({ lat, lng, landslides }: ReportMap2DProps) 
   if (mapError) {
     return (
       <div
-        className="rounded-xl overflow-hidden flex items-center justify-center"
+        className="rounded-xl overflow-hidden flex items-center justify-center bg-warm-gray/10"
         style={{
           minHeight: 400,
-          backgroundColor: '#243d50',
-          border: '1px solid rgba(45, 74, 94, 0.3)',
+          border: '1px solid rgba(107, 107, 107, 0.2)',
         }}
       >
         <div className="text-center px-6">
-          <p className="text-gray-400 text-sm">{mapError}</p>
+          <p className="text-warm-gray text-sm">{mapError}</p>
         </div>
       </div>
     );
@@ -212,11 +212,11 @@ export default function ReportMap2D({ lat, lng, landslides }: ReportMap2DProps) 
 
       {/* Map */}
       <div
-        className="rounded-xl overflow-hidden"
+        className="rounded-xl overflow-hidden bg-white shadow-sm"
         style={{
           minHeight: 400,
           height: 420,
-          border: '1px solid rgba(45, 74, 94, 0.3)',
+          border: '1px solid rgba(107, 107, 107, 0.2)',
         }}
       >
         <Map
@@ -228,7 +228,7 @@ export default function ReportMap2D({ lat, lng, landslides }: ReportMap2DProps) 
             bearing: 0,
           }}
           style={{ width: '100%', height: '100%' }}
-          mapStyle={MAP_STYLES.dark}
+          mapStyle={MAP_STYLES.light}
           maxPitch={60}
           onError={handleMapError}
         >
