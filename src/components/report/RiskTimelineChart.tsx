@@ -75,7 +75,7 @@ export default function RiskTimelineChart({ susceptibility, overall }: RiskTimel
               fontSize: 12,
               boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             }}
-            formatter={(value: number) => [`${value}/100`, 'Risk Score']}
+            formatter={(value) => [`${value}/100`, 'Risk Score']}
           />
           <Area
             type="monotone"
