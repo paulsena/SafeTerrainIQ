@@ -49,6 +49,22 @@
   font-family: var(--font-sans) !important;
 }
 
+/* Remove default focus outline on Mapbox SearchBox input */
+.search-box-container input:focus,
+.search-box-container input:focus-visible,
+.search-box-container *:focus,
+.search-box-container *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* Subtle orange focus glow on search box */
+.search-box-container:focus-within {
+  border-color: var(--color-sage) !important;
+  box-shadow: 0 0 0 2px rgba(249, 125, 0, 0.15) !important;
+}
+
 /* Custom scrollbar for dark theme */
 .dark-scroll::-webkit-scrollbar {
   width: 6px;
