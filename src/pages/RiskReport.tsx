@@ -22,7 +22,7 @@ import ChatInterface from '../components/chat/ChatInterface';
 import { useAppStore } from '../stores/appStore';
 
 // Lazy-load map components to keep initial bundle small
-const TerrainMap3D = lazy(() => import('../components/maps/TerrainMap3D'));
+// const TerrainMap3D = lazy(() => import('../components/maps/TerrainMap3D'));
 const ReportMap2D = lazy(() => import('../components/maps/ReportMap2D'));
 import {
   computeRiskScores,
@@ -296,7 +296,7 @@ export default function RiskReport() {
               <AISummary summary={riskResults.aiSummary} delay={1.8} />
             </div>
 
-            {/* 3D Terrain Map — hero visual */}
+            {/* 3D Terrain Map — hero visual (temporarily hidden)
             <motion.div
               id="report-map-3d"
               className="mb-8"
@@ -324,6 +324,7 @@ export default function RiskReport() {
                 />
               </Suspense>
             </motion.div>
+            */}
 
             {/* Debris Flow Map */}
             <motion.div
