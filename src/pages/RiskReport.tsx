@@ -14,6 +14,7 @@ import PageTransition from '../components/layout/PageTransition';
 import ProgressBar from '../components/layout/ProgressBar';
 import RiskBadge from '../components/report/RiskBadge';
 import RiskCategoryCard from '../components/report/RiskCategoryCard';
+import RiskTimelineChart from '../components/report/RiskTimelineChart';
 import AISummary from '../components/report/AISummary';
 
 import { useAppStore } from '../stores/appStore';
@@ -247,6 +248,9 @@ export default function RiskReport() {
             <MapPin className="w-4 h-4" />
             <span>{location.address}</span>
           </div>
+          <p className="text-warm-gray/60 text-xs mt-2">
+            This report uses simulated demo data for illustration purposes only.
+          </p>
         </motion.div>
 
         {isLoading || !riskResults ? (
@@ -254,9 +258,22 @@ export default function RiskReport() {
         ) : (
           <>
             {/* Risk Badge */}
-            <div className="flex justify-center mb-12 mt-4">
+            <div className="flex justify-center mb-8 mt-4">
               <RiskBadge overall={riskResults.overall} averageScore={averageScore} />
             </div>
+
+            {/* Risk Timeline Chart */}
+            <motion.div
+              className="mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+            >
+              <RiskTimelineChart
+                susceptibility={riskResults.scores.susceptibility}
+                overall={riskResults.overall}
+              />
+            </motion.div>
 
             {/* Category Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -304,6 +321,23 @@ export default function RiskReport() {
                   landslides={landslidesGeo}
                 />
               </Suspense>
+            </motion.div>
+
+            {/* Debris Flow Map */}
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <p className="text-gray-500 text-xs uppercase tracking-wider font-medium mb-2">Debris Flow Susceptibility</p>
+              <div className="rounded-xl overflow-hidden border border-warm-gray/20 shadow-card">
+                <img
+                  src="/images/Debris-Flow-Map.png"
+                  alt="Buncombe County debris flow susceptibility map"
+                  className="w-full h-[400px] object-cover"
+                />
+              </div>
             </motion.div>
 
             {/* 2D Risk Overlay Map */}

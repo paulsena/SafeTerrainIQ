@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAppStore } from '../stores/appStore';
 import RiskReport from './RiskReport';
 
@@ -8,7 +8,6 @@ import RiskReport from './RiskReport';
  */
 export default function DemoReport() {
   const { location, setLocation, setTerrain, setAnswer, setStep } = useAppStore();
-  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     if (!location) {
@@ -29,13 +28,11 @@ export default function DemoReport() {
       setAnswer('tilting', { observed: true, severity: 55 });
       setAnswer('drainage', 'pooling');
       setAnswer('slopeSelection', 19);
-      setAnswer('construction', 'none');
 
       setStep(4);
     }
-    setReady(true);
   }, [location, setLocation, setTerrain, setAnswer, setStep]);
 
-  if (!ready) return null;
+  if (!location) return null;
   return <RiskReport />;
 }

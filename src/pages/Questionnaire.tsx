@@ -219,6 +219,13 @@ function TiltingQuestion({
 
   return (
     <div className="flex flex-col gap-5">
+      <div className="w-full h-44 rounded-xl overflow-hidden border border-warm-gray/20 shadow-sm bg-warm-white shrink-0">
+        <img 
+          src="/images/tilting_trees_fences.png"
+          alt="Photorealistic tilting tree and fence side-by-side in a generic gentle backyard"
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div className="flex gap-3">
         <ToggleButton
           label="No"
@@ -289,6 +296,13 @@ function DrainageQuestion({
 
   return (
     <div className="flex flex-col gap-3">
+      <div className="w-full h-44 rounded-xl overflow-hidden border border-warm-gray/20 shadow-sm bg-warm-white shrink-0 mb-1">
+        <img 
+          src="/images/drainage_graphic.png"
+          alt="Infographic showing water drainage paths, pooling, and surface runoff on a residential grassy slope"
+          className="w-full h-full object-cover"
+        />
+      </div>
       {options.map((opt) => (
         <OptionCard key={opt.value} option={opt} selected={value === opt.value} onSelect={onChange} />
       ))}
@@ -402,30 +416,6 @@ function SlopeQuestion({
   );
 }
 
-// Q5 -- Recent Construction / Changes
-function ConstructionQuestion({
-  value,
-  onChange,
-}: {
-  value: WizardAnswers['construction'];
-  onChange: (v: WizardAnswers['construction']) => void;
-}) {
-  const options: CardOption<WizardAnswers['construction']>[] = [
-    { value: 'none', label: 'None', icon: '🟢', description: 'No recent construction or changes' },
-    { value: 'minor', label: 'Minor landscaping', icon: '🟡', description: 'Small garden work, tree trimming' },
-    { value: 'major', label: 'Major construction', icon: '🟠', description: 'Additions, grading, new structures' },
-    { value: 'clearing', label: 'Land clearing', icon: '🔴', description: 'Removal of vegetation or trees' },
-  ];
-
-  return (
-    <div className="flex flex-col gap-3">
-      {options.map((opt) => (
-        <OptionCard key={opt.value} option={opt} selected={value === opt.value} onSelect={onChange} />
-      ))}
-    </div>
-  );
-}
-
 /* ------------------------------------------------------------------ */
 /*  Question config                                                    */
 /* ------------------------------------------------------------------ */
@@ -457,12 +447,6 @@ const QUESTIONS: QuestionConfig[] = [
     key: 4,
     title: 'Slope',
     subtitle: 'What is the estimated slope of your property?',
-  },
-  {
-    key: 5,
-    title: 'Recent Changes',
-    subtitle:
-      'Have there been any recent construction or land changes on or near your property?',
   },
 ];
 
@@ -544,8 +528,6 @@ export default function Questionnaire() {
         return answers.drainage !== undefined;
       case 3:
         return answers.slopeSelection !== undefined;
-      case 4:
-        return answers.construction !== undefined;
       default:
         return false;
     }
@@ -589,16 +571,6 @@ export default function Questionnaire() {
               autoAdvance();
             }}
             terrainSlopePct={terrain?.slope ?? null}
-          />
-        );
-      case 4:
-        return (
-          <ConstructionQuestion
-            value={answers.construction}
-            onChange={(v) => {
-              setAnswer('construction', v);
-              autoAdvance();
-            }}
           />
         );
       default:
@@ -654,7 +626,8 @@ export default function Questionnaire() {
             <button
               type="button"
               onClick={goBack}
-              className="flex items-center gap-1.5 text-sm font-medium text-warm-gray hover:text-deep-slate transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 h-11 px-6 rounded-xl font-medium text-sm transition-all cursor-pointer
+                bg-warm-gray/15 text-deep-slate hover:bg-warm-gray/25 shadow-sm hover:shadow-md"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
