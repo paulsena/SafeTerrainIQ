@@ -242,12 +242,12 @@ export default function ReportExport() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email report to..."
-          className="flex-1 bg-mid-slate border border-light-slate/40 rounded-lg px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-sage/50 transition-colors"
+          className="flex-1 bg-white border border-warm-gray/30 rounded-lg px-4 py-2.5 text-sm text-deep-slate placeholder-warm-gray focus:outline-none focus:border-sage/50 transition-colors"
         />
         <button
           type="submit"
           disabled={!email.trim()}
-          className="px-4 py-2.5 bg-mid-slate hover:bg-light-slate border border-light-slate/40 disabled:opacity-40 text-gray-300 rounded-lg transition-colors cursor-pointer disabled:cursor-not-allowed"
+          className="px-4 py-2.5 bg-white hover:bg-warm-gray/10 border border-warm-gray/30 disabled:opacity-40 text-deep-slate rounded-lg transition-colors cursor-pointer disabled:cursor-not-allowed shadow-sm"
         >
           <AnimatePresence mode="wait">
             {emailSent ? (

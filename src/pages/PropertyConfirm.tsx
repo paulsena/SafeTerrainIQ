@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
+import Map, { Marker, NavigationControl, Source, Layer } from 'react-map-gl/maplibre';
+import type { FillLayerSpecification as FillLayer, LineLayerSpecification as LineLayer } from 'maplibre-gl';
 import { motion } from 'framer-motion';
 import { MapPin, ArrowLeft, CheckCircle, Loader2 } from 'lucide-react';
+import type { FeatureCollection } from 'geojson';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 import PageTransition from '../components/layout/PageTransition';
@@ -10,6 +12,48 @@ import ProgressBar from '../components/layout/ProgressBar';
 import { useAppStore } from '../stores/appStore';
 import { TILE_SOURCES } from '../lib/constants';
 import { fetchTerrainData } from '../lib/terrainData';
+
+const PARCEL_QUERY_URL = 'https://gis.buncombecounty.org/arcgis/rest/services/bcmap_vt/MapServer/0/query';
+
+async function fetchParcelBoundary(lat: number, lng: number): Promise<FeatureCollection | null> {
+  const params = new URLSearchParams({
+    geometry: `${lng},${lat}`,
+    geometryType: 'esriGeometryPoint',
+    spatialRel: 'esriSpatialRelIntersects',
+    outFields: '*',
+    outSR: '4326',
+    f: 'geojson',
+  });
+  try {
+    const res = await fetch(`${PARCEL_QUERY_URL}?${params}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.features?.length > 0 ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+const parcelFillLayer: FillLayer = {
+  id: 'parcel-fill',
+  type: 'fill',
+  source: 'parcel',
+  paint: {
+    'fill-color': '#ffffff',
+    'fill-opacity': 0.15,
+  },
+};
+
+const parcelLineLayer: LineLayer = {
+  id: 'parcel-outline',
+  type: 'line',
+  source: 'parcel',
+  paint: {
+    'line-color': '#ffffff',
+    'line-width': 2.5,
+    'line-opacity': 0.9,
+  },
+};
 
 /** Inline MapLibre style object with ArcGIS satellite raster tiles */
 const SATELLITE_STYLE = {
@@ -39,6 +83,7 @@ export default function PropertyConfirm() {
   const setTerrain = useAppStore((s) => s.setTerrain);
   const setStep = useAppStore((s) => s.setStep);
   const [confirming, setConfirming] = useState(false);
+  const [parcelGeoJSON, setParcelGeoJSON] = useState<FeatureCollection | null>(null);
 
   // Redirect if no location data
   useEffect(() => {
@@ -50,6 +95,12 @@ export default function PropertyConfirm() {
   useEffect(() => {
     setStep(2);
   }, [setStep]);
+
+  useEffect(() => {
+    if (location) {
+      fetchParcelBoundary(location.coords.lat, location.coords.lng).then(setParcelGeoJSON);
+    }
+  }, [location]);
 
   if (!location) return null;
 
@@ -124,6 +175,12 @@ export default function PropertyConfirm() {
                 attributionControl={false}
               >
                 <NavigationControl position="top-right" showCompass={false} />
+                {parcelGeoJSON && (
+                  <Source id="parcel" type="geojson" data={parcelGeoJSON}>
+                    <Layer {...parcelFillLayer} />
+                    <Layer {...parcelLineLayer} />
+                  </Source>
+                )}
                 <Marker longitude={lng} latitude={lat} anchor="bottom">
                   <div className="flex flex-col items-center">
                     <div className="w-8 h-8 bg-sage rounded-full border-[3px] border-white shadow-lg flex items-center justify-center">

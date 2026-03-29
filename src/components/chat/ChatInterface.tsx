@@ -243,11 +243,14 @@ export default function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, []);
 
   useEffect(() => {
@@ -335,13 +338,13 @@ Respond concisely and helpfully. Reference the specific data above when answerin
   };
 
   return (
-    <div className="flex flex-col h-[400px] bg-deep-slate rounded-xl border border-light-slate/40 overflow-hidden shadow-inner">
+    <div className="flex flex-col h-[400px] bg-white rounded-xl shadow-card border border-warm-gray/20 overflow-hidden">
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 dark-scroll">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full gap-4 text-center px-4">
-            <MessageCircle className="w-8 h-8 text-light-slate" />
-            <p className="text-gray-400 text-sm">
+            <MessageCircle className="w-8 h-8 text-warm-gray/40" />
+            <p className="text-warm-gray text-sm">
               Ask questions about your property's risk assessment.
             </p>
             <div className="flex flex-wrap justify-center gap-2 mt-2">
@@ -349,7 +352,7 @@ Respond concisely and helpfully. Reference the specific data above when answerin
                 <button
                   key={q}
                   onClick={() => handleSuggestion(q)}
-                  className="px-3 py-1.5 text-xs bg-mid-slate text-gray-300 rounded-full border border-light-slate/30 hover:border-sage/40 hover:text-white transition-colors cursor-pointer"
+                  className="px-3 py-1.5 text-xs bg-warm-white text-deep-slate rounded-full border border-warm-gray/30 hover:border-sage/40 hover:text-sage transition-colors cursor-pointer shadow-sm"
                 >
                   {q}
                 </button>
@@ -366,7 +369,7 @@ Respond concisely and helpfully. Reference the specific data above when answerin
             isStreaming={isStreaming && msg.role === 'assistant' && msg.id === messages[messages.length - 1]?.id}
           />
         ))}
-        <div ref={messagesEndRef} />
+        <div />
       </div>
 
       {/* Suggested questions (when there are messages) */}
@@ -378,7 +381,7 @@ Respond concisely and helpfully. Reference the specific data above when answerin
             <button
               key={q}
               onClick={() => handleSuggestion(q)}
-              className="px-2.5 py-1 text-[11px] bg-mid-slate text-gray-400 rounded-full border border-light-slate/20 hover:border-sage/30 hover:text-gray-300 transition-colors cursor-pointer"
+              className="px-2.5 py-1 text-[11px] bg-warm-white text-warm-gray rounded-full border border-warm-gray/20 hover:border-sage/30 hover:text-deep-slate transition-colors cursor-pointer"
             >
               {q}
             </button>
@@ -387,7 +390,7 @@ Respond concisely and helpfully. Reference the specific data above when answerin
       )}
 
       {/* Input area */}
-      <form onSubmit={handleSubmit} className="p-3 border-t border-light-slate/30">
+      <form onSubmit={handleSubmit} className="p-3 border-t border-warm-gray/20">
         <div className="flex gap-2">
           <input
             type="text"
@@ -395,7 +398,7 @@ Respond concisely and helpfully. Reference the specific data above when answerin
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask about your risk assessment..."
             disabled={isStreaming}
-            className="flex-1 bg-mid-slate border border-light-slate/40 rounded-lg px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-sage/50 transition-colors disabled:opacity-50"
+            className="flex-1 bg-warm-white border border-warm-gray/30 rounded-lg px-4 py-2.5 text-sm text-deep-slate placeholder-warm-gray focus:outline-none focus:border-sage/50 transition-colors disabled:opacity-50"
           />
           <button
             type="submit"

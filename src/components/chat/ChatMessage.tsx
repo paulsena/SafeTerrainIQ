@@ -19,7 +19,7 @@ export default function ChatMessage({ role, content, isStreaming }: ChatMessageP
     >
       {/* Assistant avatar */}
       {!isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-light-slate flex items-center justify-center mt-1">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-warm-gray/20 flex items-center justify-center mt-1">
           <Brain className="w-4 h-4 text-sage" />
         </div>
       )}
@@ -27,8 +27,8 @@ export default function ChatMessage({ role, content, isStreaming }: ChatMessageP
       <div
         className={`max-w-[80%] px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap ${
           isUser
-            ? 'bg-sage text-white rounded-2xl rounded-br-sm'
-            : 'bg-mid-slate text-gray-200 rounded-2xl rounded-bl-sm'
+            ? 'bg-sage text-white rounded-2xl rounded-br-sm shadow-sm'
+            : 'bg-warm-white text-deep-slate border border-warm-gray/20 rounded-2xl rounded-bl-sm shadow-sm'
         }`}
       >
         {content}
