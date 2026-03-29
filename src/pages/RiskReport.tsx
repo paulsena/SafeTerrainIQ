@@ -6,6 +6,7 @@ import {
   Waves,
   Droplets,
   AlertTriangle,
+  Brain,
   ChevronRight,
   MapPin,
 } from 'lucide-react';
@@ -16,6 +17,7 @@ import RiskBadge from '../components/report/RiskBadge';
 import RiskCategoryCard from '../components/report/RiskCategoryCard';
 import RiskTimelineChart from '../components/report/RiskTimelineChart';
 import AISummary from '../components/report/AISummary';
+import ChatInterface from '../components/chat/ChatInterface';
 
 import { useAppStore } from '../stores/appStore';
 
@@ -368,6 +370,20 @@ export default function RiskReport() {
                 />
               </Suspense>
             </motion.div>
+
+            {/* AI Chat Section */}
+            <motion.section
+              className="mb-10"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2.2, duration: 0.4 }}
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <Brain className="w-4 h-4 text-sage" />
+                <p className="uppercase tracking-wider text-xs text-gray-500 font-medium">AI Risk Assistant</p>
+              </div>
+              <ChatInterface />
+            </motion.section>
 
             {/* Next Steps CTA */}
             <motion.div

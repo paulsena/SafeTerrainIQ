@@ -296,11 +296,11 @@ function DrainageQuestion({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="w-full h-44 rounded-xl overflow-hidden border border-warm-gray/20 shadow-sm bg-warm-white shrink-0 mb-1">
+      <div className="w-full flex justify-center rounded-xl overflow-hidden border border-warm-gray/20 shadow-sm bg-white shrink-0 mb-1">
         <img 
           src="/images/drainage_graphic.png"
           alt="Infographic showing water drainage paths, pooling, and surface runoff on a residential grassy slope"
-          className="w-full h-full object-cover"
+          className="w-full max-h-60 object-contain"
         />
       </div>
       {options.map((opt) => (

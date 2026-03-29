@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Brain,
   Download,
   Phone,
   ExternalLink,
@@ -11,7 +10,6 @@ import {
 
 import PageTransition from '../components/layout/PageTransition';
 import ProgressBar from '../components/layout/ProgressBar';
-import ChatInterface from '../components/chat/ChatInterface';
 import ReportExport from '../components/report/ReportExport';
 
 import { useAppStore } from '../stores/appStore';
@@ -84,22 +82,6 @@ export default function NextSteps() {
             Explore your results with our AI assistant, export your report, or connect with local professionals.
           </p>
         </motion.div>
-
-        {/* AI Chat Section */}
-        <motion.section
-          className="mb-12"
-          {...fadeUp}
-          transition={{ duration: 0.4, delay: 0.1 }}
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <Brain className="w-4 h-4 text-sage" />
-            <h2 className={sectionHeader + ' mb-0'}>AI Risk Assistant</h2>
-          </div>
-          <ChatInterface />
-        </motion.section>
-
-        {/* Divider */}
-        <div className="border-t border-warm-gray/20 mb-12" />
 
         {/* Export Section */}
         <motion.section
