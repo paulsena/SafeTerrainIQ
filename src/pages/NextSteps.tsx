@@ -67,7 +67,7 @@ export default function NextSteps() {
     <PageTransition className="min-h-screen bg-deep-slate dark-scroll overflow-y-auto">
       {/* Progress bar - dark themed */}
       <div className="pt-6 pb-4">
-        <div className="[&_span]:!text-gray-500 [&_.bg-warm-white]:!bg-light-slate/40 [&_.ring-offset-2]:!ring-offset-deep-slate [&_.bg-sage]:!bg-sage [&_.bg-warm-white\\/50]:!bg-light-slate/30 [&_div[class*='border']]:!border-light-slate/40 [&_div:not(.bg-sage)]:text-gray-400">
+        <div className="[&_span]:!text-gray-500 [&_.bg-warm-white]:!bg-light-slate/40 [&_.ring-offset-2]:!ring-offset-deep-slate [&_.bg-sage]:!bg-sage [&_div[class*='border']]:!border-light-slate/40 [&_div:not(.bg-sage)]:text-gray-400">
           <ProgressBar currentStep={5} totalSteps={5} />
         </div>
       </div>
