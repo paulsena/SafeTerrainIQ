@@ -4,6 +4,7 @@
 
 *SafeTerrainIQ is an MVP prototype built for a weekend hackathon, designed to deliver expert-level geohazard intelligence directly to homeowners in Western North Carolina.*
 
+Site at: https://safeterrainiq.paulsena.workers.dev/
 ---
 
 ## The Problem
